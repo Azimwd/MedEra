@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href=" {% static "vendor/fontawesome-free/css/all.min.css" %} " rel="stylesheet">
+    <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %} " rel="stylesheet">
+    <link href="{% static "vendor/bootstrap-icons/bootstrap-icons.css" %} " rel="stylesheet">
+    <link href="{% static "vendor/boxicons/css/boxicons.min.css" %} " rel="stylesheet">
+    <link href=" {% static "vendor/glightbox/css/glightbox.min.css" %} " rel="stylesheet">
+   
+  
+    <link href=" {% static "css/main/style.css" %} " rel="stylesheet">
+    {% block head %}
+    {% endblock head %}
+</head>
+<body>
+    {% block header %}
+        
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+
+        <h1 class="logo me-auto"><a href="{% url "main:home" %}">MedEra</a></h1>
+
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+            {% comment %} <li><a class="nav-link scrollto active" href="#hero">Home</a></li> {% endcomment %}
+            
+            {% if user.is_authenticated %}
+                <li><a class="nav-link scrollto active" href="{% url "users:logout" %}">Logout</a></li>
+            {% else %}
+                <li><a class="nav-link scrollto active" href="{% url "users:registration" %}">Registration</a></li>
+                <li><a class="nav-link scrollto active" href="{% url "users:login" %}">Login</a></li>
+            {% endif %}
+        </nav>
+        </div>
+    </header>
+    {% endblock header %}
+    {% block content %}
+    {% endblock content %}
+    {% block footer %}
+
+    <footer id="footer">
+
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+    
+              <div class="col-lg-3 col-md-6 footer-contact">
+                <h3>MedEra</h3>
+                <p>
+                    Manas street 34/1 <br>
+                    Almaty 050000<br>
+                    Kazakhstan <br><br>
+                    <strong>Phone:</strong> +7 747 702 3204<br>
+                    <strong>Email:</strong> 37497@iitu.edu.kz<br>
+                </p>
+              </div>
+    
+    
+            </div>
+          </div>
+        </div>
+
+    </footer>
+    
+    {% endblock footer %}
+
+    {% block scripts %}
+      
+    {% endblock scripts %}
+</body>
+</html>

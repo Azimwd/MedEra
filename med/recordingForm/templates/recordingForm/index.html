@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/recordingForm/style.css' %}">
+{% endblock head %}
+{% block content %}
+    <body>
+        <div class="formbold-main-wrapper">
+            <!-- Author: FormBold Team -->
+            <!-- Learn More: https://formbold.com -->
+            <div class="formbold-form-wrapper">
+              <form action="#" method="#">
+                  <div class="formbold-steps">
+                      <ul>
+                          <li class="formbold-step-menu1 active">
+                              <span>1</span>
+                              Sign Up
+                          </li>
+                          <li class="formbold-step-menu2">
+                              <span>2</span>
+                              Message
+                          </li>
+                          <li class="formbold-step-menu3">
+                              <span>3</span>
+                              Confirm
+                          </li>
+                      </ul>
+                  </div>
+          
+                  <div class="formbold-form-step-1 active">
+                    <div class="formbold-input-flex">
+                      <div>
+                          <label for="firstname" class="formbold-form-label"> First name </label>
+                          <input
+                          type="text"
+                          name="firstname"
+                          placeholder="Andrio"
+                          id="firstname"
+                          class="formbold-form-input"
+                          />
+                      </div>
+                      <div>
+                          <label for="lastname" class="formbold-form-label"> Last name </label>
+                          <input
+                          type="text"
+                          name="lastname"
+                          placeholder="Dolee"
+                          id="lastname"
+                          class="formbold-form-input"
+                          />
+                      </div>
+                    </div>
+            
+                    <div class="formbold-input-flex">
+                        <div>
+                            <label for="dob" class="formbold-form-label"> Date of Birth </label>
+                            <input 
+                            type="date" 
+                            name="dob" 
+                            id="dob" 
+                            class="formbold-form-input"
+                            />
+                        </div>
+                        <div>
+                            <label for="email" class="formbold-form-label"> Email Address </label>
+                            <input
+                            type="email"
+                            name="email"
+                            placeholder="example@mail.com"
+                            id="email"
+                            class="formbold-form-input"
+                            />
+                        </div>
+
+
+                    </div>
+                    <div>
+                        <label for="phone" class="formbold-form-label"> Phone </label>
+                        <input
+                        type="text"
+                        name="phone"
+                        placeholder="+7 747 702 3204"
+                        id="phone"
+                        class="formbold-form-input"
+                        />
+                    </div>
+                  </div>
+          
+                  <div class="formbold-form-step-2">
+                    <div>
+                      <label for="message" class="formbold-form-label"> Describe your problem </label>
+                      <textarea
+                        rows="6"
+                        name="message"
+                        id="message"
+                        placeholder="Type your message"
+                        class="formbold-form-input"
+                      ></textarea>
+                    </div>
+                  </div>
+          
+                  <div class="formbold-form-step-3">
+                    <div class="formbold-form-confirm">
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                      </p>
+          
+                      <div>
+                        <button class="formbold-confirm-btn active">
+                         
+                          Yes! I want it.
+                        </button>
+          
+                        <button class="formbold-confirm-btn">
+                          
+                          No! I don’t want it.
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="formbold-form-btn-wrapper">
+                    <button class="formbold-back-btn">
+                      Back
+                    </button>
+          
+                    <button class="formbold-btn">
+                        Next Step
+                    </button>
+                  </div>
+              </form>
+            </div>
+          </div>
+        
+    </body>
+{% endblock content %}
+{% block scripts %}
+    <script src="{% static "js/recordingForm/scripts.js" %}"></script>
+{% endblock scripts %}

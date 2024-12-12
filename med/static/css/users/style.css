@@ -1,0 +1,73 @@
+.authentication--form__main {
+    font-family: Arial, sans-serif;
+    background: url("../../img/bg2.jpg") left ;
+    width: 100%;
+    color: #536387;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.authentication-form__container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px 40px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.authentication__title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
+
+.authentication__form__input input{
+    background-color: rgb(179, 14, 14);
+}
+
+.authentication__form__input input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border: 1px solid #536387;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #536387;
+}
+
+.authentication__form__input input, select, textarea {
+    outline: none;
+    box-shadow: none; 
+    color: #536387;
+}
+
+.authentication__form__input input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #129c19;
+}
+
+.authentication__btn {
+    font-size: 24px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #536387;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 23px;
+}
+
+.authentication__btn:hover {
+    background-color: #65b973;
+}
+
+
