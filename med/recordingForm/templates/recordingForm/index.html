@@ -3,6 +3,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/recordingForm/style.css' %}">
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% endblock head %}
 {% block content %}
     <body>
@@ -52,29 +53,16 @@
                       </div>
                     </div>
             
-                    <div class="formbold-input-flex">
-                        <div>
-                            <label for="dob" class="formbold-form-label"> Date of Birth </label>
-                            <input 
-                            type="date" 
-                            name="dob" 
-                            id="dob" 
-                            class="formbold-form-input"
-                            />
-                        </div>
-                        <div>
-                            <label for="email" class="formbold-form-label"> Email Address </label>
-                            <input
-                            type="email"
-                            name="email"
-                            placeholder="example@mail.com"
-                            id="email"
-                            class="formbold-form-input"
-                            />
-                        </div>
-
-
-                    </div>
+                    <div>
+                      <label for="email" class="formbold-form-label"> Email Address </label>
+                      <input
+                      type="email"
+                      name="email"
+                      placeholder="example@mail.com"
+                      id="email"
+                      class="formbold-form-input"
+                      />
+                  </div>
                     <div>
                         <label for="phone" class="formbold-form-label"> Phone </label>
                         <input
@@ -101,14 +89,27 @@
                   </div>
           
                   <div class="formbold-form-step-3">
-                    <div class="formbold-form-confirm">
-                      <label for="start">Start date:</label>
 
-                      <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" />
-
-          
                       <div>
-    
+                        <p class="formbold-form-label">Doctor:</p>
+                        <select id="doctor-select" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                          <option selected>Choose doctor</option>
+                          {% for doctor in doctors %}
+                                <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                          {% endfor %}
+                          
+                        </select>
+                
+  
+                        <div id="doctor-info" style="margin-top: 20px; display: none;">
+                          <select id="doctor-times" class="form-select form-select-sm" aria-label=".form-select-sm example" >
+                            <option selected>Choose time</option>
+                            
+                          </select>
+  
+                          <p><strong>Specialization:</strong> <span id="doctor-specialization"></span></p>
+                          <p><strong>Phone:</strong> <span id="doctor-phone"></span></p>
+                          <div class="doctor-info__description"><p><strong>Description:</strong> <span id="doctor-description"></span></p></div>
                       </div>
                     </div>
                   </div>
@@ -125,9 +126,9 @@
               </form>
             </div>
           </div>
-        
     </body>
+    <div id="footer-bottom"></div>
 {% endblock content %}
 {% block scripts %}
-    <script src="{% static "js/recordingForm/scripts.js" %}"></script>
+<script src="{% static "js/recordingForm/scripts.js" %}"></script>
 {% endblock scripts %}
