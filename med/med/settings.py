@@ -39,10 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main',
-    'doctors',
     'users',
-    'doctorProfile',
+    'userprofile',
     'recordingForm',
+
+    'corsheaders',
 
 ]
 

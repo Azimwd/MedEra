@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/userprofile/style.css' %}" />
+{% endblock head %} {% block content %}
+{% comment %} {% block header %}{% endblock header %} {% endcomment %}
+<body>
+    <div class="margin-top"></div>
+    <div class="container">
+        {% for appointment in appointments %}
+        <div class="container__inner">
+
+                {% if appointment.user_id == user.id %}
+                    <div class="card mt-5 border-5 pt-2 active pb-0 px-3">
+                        <div class="card-footer bg-white px-0">
+                        <div class="row">
+                            <h6>Doctor name:<span> {{appointment.doctor_name}} </span></h6>
+                        </div>
+                        <div class="row">
+                            <h6>Massage:<span> {{appointment.message}} </span></h6>
+                        </div>
+                        <div class="row">
+                            <h6>Meet time:<span> {{appointment.meet_time}} </span></h6>
+                        </div>
+                    </div>
+                {% endif %}
+          </div>
+          {% endfor %}
+      </div> 
+    </div>
+    <div id="footer-bottom"></div>
+</body>
+
+
+{% endblock content %} {% block scripts %} {% endblock scripts %}

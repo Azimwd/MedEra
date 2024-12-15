@@ -6,5 +6,5 @@ urlpatterns = [
     path("", include("main.urls", namespace="main")),
     path("users/", include("users.urls", namespace="users")),
     path("recording/", include("recordingForm.urls", namespace="recordingForm")),
-    path("profile/", include("doctorProfile.urls", namespace="doctorProfile")),
+    path("profile/", include("userprofile.urls", namespace="profile")),
 ]

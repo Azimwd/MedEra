@@ -808,3 +808,7 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+#footer-bottom {
+  margin-top: 100px;
+}

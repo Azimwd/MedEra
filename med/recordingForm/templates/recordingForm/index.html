@@ -3,15 +3,15 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/recordingForm/style.css' %}">
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% endblock head %}
 {% block content %}
     <body>
         <div class="formbold-main-wrapper">
-            <!-- Author: FormBold Team -->
-            <!-- Learn More: https://formbold.com -->
+
             <div class="formbold-form-wrapper">
-              <form action="#" method="#">
+              <form action="{% url "recordingForm:recordingForm" %}" method="POST">
+                  {% csrf_token %}
                   <div class="formbold-steps">
                       <ul>
                           <li class="formbold-step-menu1 active">
@@ -32,44 +32,44 @@
                   <div class="formbold-form-step-1 active">
                     <div class="formbold-input-flex">
                       <div>
-                          <label for="firstname" class="formbold-form-label"> First name </label>
+                          <label for="id_first_name" class="formbold-form-label"> First name </label>
                           <input
                           type="text"
-                          name="firstname"
-                          placeholder="Andrio"
-                          id="firstname"
+                          name="name"
+                          placeholder="Name"
+                          id="id_first_name"
                           class="formbold-form-input"
                           />
                       </div>
                       <div>
-                          <label for="lastname" class="formbold-form-label"> Last name </label>
+                          <label for="id_last_name" class="formbold-form-label"> Last name </label>
                           <input
                           type="text"
-                          name="lastname"
-                          placeholder="Dolee"
-                          id="lastname"
+                          name="last_name"
+                          placeholder="Last name"
+                          id="id_last_name"
                           class="formbold-form-input"
                           />
                       </div>
                     </div>
             
                     <div>
-                      <label for="email" class="formbold-form-label"> Email Address </label>
+                      <label for="id_email" class="formbold-form-label"> Email Address </label>
                       <input
                       type="email"
                       name="email"
                       placeholder="example@mail.com"
-                      id="email"
+                      id="id_email"
                       class="formbold-form-input"
                       />
                   </div>
                     <div>
-                        <label for="phone" class="formbold-form-label"> Phone </label>
+                        <label for="id_phone" class="formbold-form-label"> Phone </label>
                         <input
                         type="text"
                         name="phone"
                         placeholder="+7 747 702 3204"
-                        id="phone"
+                        id="id_phone"
                         class="formbold-form-input"
                         />
                     </div>
@@ -77,11 +77,11 @@
           
                   <div class="formbold-form-step-2">
                     <div>
-                      <label for="message" class="formbold-form-label"> Describe your problem </label>
+                      <label for="id_message" class="formbold-form-label"> Describe your problem </label>
                       <textarea
                         rows="6"
                         name="message"
-                        id="message"
+                        id="id_message"
                         placeholder="Type your message"
                         class="formbold-form-input"
                       ></textarea>
@@ -91,25 +91,33 @@
                   <div class="formbold-form-step-3">
 
                       <div>
-                        <p class="formbold-form-label">Doctor:</p>
-                        <select id="doctor-select" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                 
+                        <label class="formbold-form-label" for="id_doctor-times">Doctor:</label>
+                        <select name="doctor_name" id="id_doctor-select" class="form-select form-select-sm" aria-label=".form-select-sm example">
                           <option selected>Choose doctor</option>
                           {% for doctor in doctors %}
                                 <option value="{{ doctor.id }}">{{ doctor.name }}</option>
                           {% endfor %}
                           
                         </select>
-                
+      
   
                         <div id="doctor-info" style="margin-top: 20px; display: none;">
-                          <select id="doctor-times" class="form-select form-select-sm" aria-label=".form-select-sm example" >
+                          <label for="id_doctor-times"></label>
+                          <select name="meet_time" id="id_doctor-times" class="form-select form-select-sm" aria-label=".form-select-sm example" >
                             <option selected>Choose time</option>
-                            
                           </select>
-  
-                          <p><strong>Specialization:</strong> <span id="doctor-specialization"></span></p>
-                          <p><strong>Phone:</strong> <span id="doctor-phone"></span></p>
-                          <div class="doctor-info__description"><p><strong>Description:</strong> <span id="doctor-description"></span></p></div>
+                         
+                          
+                          <p><strong>Specialization:</strong> <span id="id_doctor-specialization"></span></p>
+                          <p><strong>Phone:</strong> <span id="id_doctor-phone"></span></p>
+                          <div class="doctor-info__description"><p><strong>Description:</strong> <span id="id_octor-description"></span></p></div>
+                          
+                          <span class="doctor_name" id="id_doctor-name"></span>
+                          <input type="hidden" id="id_doctor-name_input" name="doctor_name" value="">
+
+                          <input type="hidden" id="id_user-id" name="user_id" value="{{user.id}}">
+
                       </div>
                     </div>
                   </div>
@@ -119,9 +127,14 @@
                       Back
                     </button>
           
-                    <button class="formbold-btn">
+                    <button class="formbold-btn active">
                         Next Step
                     </button>
+
+                    <button class="formbold-btn submit" type="submit">
+                      Submit
+                    </button>
+                    {% comment %} <button id="update-time-button">Update Time</button> {% endcomment %}
                   </div>
               </form>
             </div>
@@ -129,6 +142,7 @@
     </body>
     <div id="footer-bottom"></div>
 {% endblock content %}
+
 {% block scripts %}
-<script src="{% static "js/recordingForm/scripts.js" %}"></script>
+  <script src="{% static "js/recordingForm/scripts.js" %}"></script>
 {% endblock scripts %}
