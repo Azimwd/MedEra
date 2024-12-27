@@ -96,7 +96,7 @@
                         <select name="doctor_name" id="id_doctor-select" class="form-select form-select-sm" aria-label=".form-select-sm example">
                           <option selected>Choose doctor</option>
                           {% for doctor in doctors %}
-                                <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                                <option value="{{ doctor.id }}">{{ doctor.name }} / {{ doctor.specialization }}</option>
                           {% endfor %}
                           
                         </select>
@@ -108,12 +108,12 @@
                             <option selected>Choose time</option>
                           </select>
                          
-                          
+                          <p><strong>Doctor name:</strong> <span class="doctor_name" id="id_doctor-name"></span></p>
                           <p><strong>Specialization:</strong> <span id="id_doctor-specialization"></span></p>
                           <p><strong>Phone:</strong> <span id="id_doctor-phone"></span></p>
                           <div class="doctor-info__description"><p><strong>Description:</strong> <span id="id_octor-description"></span></p></div>
                           
-                          <span class="doctor_name" id="id_doctor-name"></span>
+                          
                           <input type="hidden" id="id_doctor-name_input" name="doctor_name" value="">
 
                           <input type="hidden" id="id_user-id" name="user_id" value="{{user.id}}">

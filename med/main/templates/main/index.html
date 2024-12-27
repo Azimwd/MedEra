@@ -25,9 +25,16 @@
                     - Convenient location and comfortable conditions.<br>
                     - A wide range of services: from preventive examinations to complex surgical interventions.
                 </p>
-                <div class="text-center">
-                  <a href="{% url "recordingForm:recordingForm" %}" class="more-btn">submit an application <i class="bx bx-chevron-right"></i></a>
-                </div>
+                {% if user.is_authenticated %}
+                  <div class="text-center">
+                    <a href="{% url "recordingForm:recordingForm" %}" class="more-btn">submit an application <i class="bx bx-chevron-right"></i></a>
+                  </div>
+                {% else %}
+                  <div class="text-center">
+                    <a href="{% url "users:registration" %}" class="more-btn">please authenticate<i class="bx bx-chevron-right"></i></a>
+                  </div>
+                {% endif %}
+
               </div>
             </div>
             <div class="col-lg-8 d-flex align-items-stretch">
